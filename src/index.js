@@ -1,12 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Home from "./components/";
-import CreateAccount from "./components/";
-import Login from "./components/";
-import Deposit from "./components/";
-import Withdraw from "./components/";
-import Balance from "./components/";
-import AllData from "./components/";
+import { browserHistory, Router, Route } from 'react-router';
+import { HashRouter } from 'react-router-dom'
+import Home from "./components/home";
+import CreateAccount from "./components/createaccount";
+import Login from "./components/login";
+import Deposit from "./components/deposit";
+import Withdraw from "./components/withdraw";
+import Balance from "./components/balance";
+import AllData from "./components/alldata";
 
 function Spa() {
   return (
