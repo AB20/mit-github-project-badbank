@@ -7,7 +7,15 @@ function Deposit(){
   
   function validate(field, label){
       if (!field) {
-        setStatus('Error: ' + label);
+        setStatus('Error: ' + label + 'not provided');
+        setTimeout(() => setStatus(''),3000);
+        return false;
+      } else if (field <= 0 ) {
+        setStatus('Error: Value must be great than zero');
+        setTimeout(() => setStatus(''),3000);
+        return false;
+      } else if (isNaN(field)==true){
+        setStatus('Error: Value must be numerical');
         setTimeout(() => setStatus(''),3000);
         return false;
       }
