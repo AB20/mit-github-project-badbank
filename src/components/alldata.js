@@ -1,3 +1,5 @@
+import React from "react";
+
 function AllData(){
   const ctx = React.useContext(UserContext);
   return (
@@ -7,3 +9,5 @@ function AllData(){
     </>
   );
 }
+
+export default AllData;
