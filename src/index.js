@@ -1,5 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Home from "./components/";
+import CreateAccount from "./components/";
+import Login from "./components/";
+import Deposit from "./components/";
+import Withdraw from "./components/";
+import Balance from "./components/";
+import AllData from "./components/";
 
 function Spa() {
   return (
