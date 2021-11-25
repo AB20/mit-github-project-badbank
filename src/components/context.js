@@ -1,6 +1,5 @@
 import React from "react";
-import ReactRouterDOM from "react-router-dom";
-import { BrowserRouter } from 'react-router-dom'
+import ReactRouterDOM from 'react';
 const Route       = ReactRouterDOM.Route;
 const Link        = ReactRouterDOM.Link;
 const HashRouter  = ReactRouterDOM.HashRouter;
@@ -27,4 +26,4 @@ function Card(props){
   }
 
   
-export default Card;
+export default {Card, UserContext};

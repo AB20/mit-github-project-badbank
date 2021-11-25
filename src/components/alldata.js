@@ -1,4 +1,5 @@
 import React from "react";
+import UserContext from './context';
 
 function AllData(){
   const ctx = React.useContext(UserContext);

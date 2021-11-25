@@ -9,6 +9,8 @@ import Deposit from "./components/deposit";
 import Withdraw from "./components/withdraw";
 import Balance from "./components/balance";
 import AllData from "./components/alldata";
+import NavBar from "./components/navbar";
+import UserContext from './components/context';
 
 function Spa() {
   return (
