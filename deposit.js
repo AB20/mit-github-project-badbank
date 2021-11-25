@@ -16,6 +16,7 @@ function Deposit(){
         return false;
       } else if (isNaN(field)==true){
         setStatus('Error: Value must be numerical');
+        clearForm();
         setTimeout(() => setStatus(''),3000);
         return false;
       }
@@ -24,7 +25,7 @@ function Deposit(){
 
   function handleCreate(){
     console.log(balance,depositAmount);
-    //if (!validate(balance,     'balance'))     return;
+    if (!validate(balance,     'balance'))     return;
     if (!validate(depositAmount,    'depositAmount'))    return;
     ctx.users.push({balance:100, depositAmount});
     setShow(false);
