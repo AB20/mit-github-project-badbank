@@ -44,7 +44,7 @@ function Login(){
             ):(
               <>
               <h5>Success</h5>
-              <button type="submit" className="btn btn-light" onClick={clearForm}>Log-In Failed-Try Again</button>
+              <button type="submit" className="btn btn-light" onClick={clearForm}>Welcome!</button>
               </>
             )}
     />
