@@ -1,6 +1,3 @@
-import React from "react";
-import Card from "./context";
-
 function Home(){
   return (
     <Card
@@ -12,5 +9,3 @@ function Home(){
     />    
   );  
 }
-
-export default Home;

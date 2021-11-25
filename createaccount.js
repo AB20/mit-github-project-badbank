@@ -1,7 +1,3 @@
-import React from "react";
-import Card from "./context";
-import UserContext from './context';
-
 function CreateAccount(){
   const [show, setShow]         = React.useState(true);
   const [status, setStatus]     = React.useState('');
@@ -59,6 +55,3 @@ function CreateAccount(){
     />
   )
 }
-
-
-export default CreateAccount;
