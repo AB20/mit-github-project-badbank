@@ -1,7 +1,7 @@
 function Deposit(){
   const [show, setShow]         = React.useState(true);
   const [status, setStatus]     = React.useState('');
-  const [balance, setBalance]   = React.useState('');
+  const [balance, setBalance]   = React.useState(100);
   const [depositAmount, setDepositAmount]  = React.useState('');
   const ctx = React.useContext(UserContext);  
   
@@ -36,7 +36,7 @@ function Deposit(){
       body={show ? (  
               <>
               Balance<br/>
-              <input type="input" className="form-control" id="balance" placeholder="" value={balance} onChange={e => setBalance(e.currentTarget.value)} /><br/>
+              <h3 className="" id="balance" placeholder="" value={balance} onChange={e => setBalance(e.currentTarget.value)}></h3><br/>
               Deposit Amount <br/>
               <input type="input" className="form-control" id="depositAmount" placeholder="Enter amount" value={depositAmount} onChange={e => setDepositAmount(e.currentTarget.value)}/><br/>
               <button type="submit" className="btn btn-light" onClick={handleCreate}>DEPOSIT</button>
