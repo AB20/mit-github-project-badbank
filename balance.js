@@ -20,7 +20,7 @@ function Balance(){
 
   return (
     <Card
-      bgcolor="primary"
+      bgcolor="secondary"
       header="Balance"
       status={status}
       body={show ? (  
