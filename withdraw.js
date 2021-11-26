@@ -10,6 +10,11 @@ function Withdraw(){
         setStatus('Error: ' + label);
         setTimeout(() => setStatus(''),3000);
         return false;
+      } else if (field <= 0 ) {
+        setStatus('Error: Value must be great than zero');
+        clearForm();
+        setTimeout(() => setStatus(''),3000);
+        return false;
       } else if (isNaN(field)==true){
         setStatus('Error: Value must be numerical');
         clearForm();
