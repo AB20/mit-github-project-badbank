@@ -7,7 +7,7 @@ function Withdraw(){
   
   function validate(field, label){
       if (!field) {
-        setStatus('Error: ' + label);
+        setStatus('Error: ' + label + 'empty');
         setTimeout(() => setStatus(''),3000);
         return false;
       } else if (field <= 0 ) {
