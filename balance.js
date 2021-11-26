@@ -21,11 +21,10 @@ function Balance(){
   return (
     <Card
       bgcolor="secondary"
-      header="Balance"
+      header="BALANCE"
       status={status}
       body={show ? (  
               <>
-              Balance<br/>
               <h3 className="" id="balance" placeholder="" onChange={e => setBalance(e.currentTarget.value)}>{balance}</h3><br/>
               </>
             ):(
