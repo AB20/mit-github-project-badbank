@@ -31,9 +31,13 @@ function Withdraw(){
     if (!validate(withdrawAmount,    'withdrawAmount'))    return;
     let int = parseInt(withdrawAmount);
     if (withdrawAmount > balanceValue.balance) {
+        let newBalance = balance - int;
+        updateBalance(newBalance)
+        balanceValue.balance = newBalance;
+        ctx.users.push({withdrawTaken: withdrawAmount, overDraft: true});
         setTimeout(() => clearForm(),3000);
         setTimeout(() => setStatus(''),3000);
-        return setStatus('DECLINED: Withdraw amount exceeds current balance')
+        return setStatus('WARNING - OVERDRAFT: Withdraw amount exceeds current balance - Account is overdrafted!')
     } else {
       let newBalance = balance - int;
       updateBalance(newBalance)

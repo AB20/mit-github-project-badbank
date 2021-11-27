@@ -7,12 +7,12 @@ function Deposit(){
   const [balance, updateBalance]   = React.useState(balanceValue.balance);
 
   function validate(field, label){
-      if (!field) {
+      if (!depositAmount) {
         setStatus('Error: Deposit amount not provided. Please enter a number');
         setTimeout(() => setStatus(''),3000);
         return false;
-      } else if (field <= 0 ) {
-        setStatus('Error: Value must be great than zero');
+      } else if (depositAmount <= 0 ) {
+        setStatus('Error: Deposit amount must be great than zero');
         clearForm();
         setTimeout(() => setStatus(''),3000);
         return false;
