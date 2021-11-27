@@ -1,9 +1,10 @@
 function Withdraw(){
   const [show, setShow]         = React.useState(true);
   const [status, setStatus]     = React.useState('');
-  const [balance, updateBalance]   = React.useState(100);
   const [withdrawAmount, setWithdrawAmount]  = React.useState('');
   const ctx = React.useContext(UserContext);  
+  const balanceValue = React.useContext(BalanceContext);  
+  const [balance, updateBalance]   = React.useState(balanceValue.balance);
   
   function validate(field, label){
       if (!field) {
@@ -31,9 +32,9 @@ function Withdraw(){
     let int = parseInt(withdrawAmount);
     let newBalance = balance - int;
     updateBalance(newBalance)
-    ctx.users.push({balance: newBalance});
+    balanceValue.balance = newBalance;
+    ctx.users.push({withdrawTaken: withdrawAmount});
     setShow(false);
-    ctx.users.push({balance: newBalance});
   }    
 
   function clearForm(){

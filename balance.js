@@ -2,6 +2,7 @@ function Balance(){
   const [show, setShow]         = React.useState(true);
   const [status, setStatus]     = React.useState('');
   const ctx = React.useContext(UserContext);  
+  const balanceValue = React.useContext(BalanceContext); 
 
   return (
     <Card
@@ -10,7 +11,7 @@ function Balance(){
       status={status}
       body={show ? (  
               <>
-              <h3 className="" id="balance" placeholder="">${JSON.stringify(ctx.balance)}</h3><br/>
+              <h3 className="" id="balance" placeholder="">${JSON.stringify(balanceValue.balance)}</h3><br/>
               </>
             ):(
               <>

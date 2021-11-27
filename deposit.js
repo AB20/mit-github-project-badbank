@@ -1,10 +1,11 @@
 function Deposit(){
   const [show, setShow]         = React.useState(true);
   const [status, setStatus]     = React.useState('');
-  const [balance, updateBalance]   = React.useState(100);
   const [depositAmount, setDepositAmount]  = React.useState('');
-  const ctx = React.useContext(UserContext);  
-  
+  const ctx = React.useContext(UserContext);
+  const balanceValue = React.useContext(BalanceContext);  
+  const [balance, updateBalance]   = React.useState(balanceValue.balance);
+
   function validate(field, label){
       if (!field) {
         setStatus('Error: ' + label + 'not provided');
@@ -30,7 +31,8 @@ function addToBalance(){
     let int = parseInt(depositAmount);
     let newBalance = int + balance;
     updateBalance(newBalance)
-    ctx.users.push({balance: newBalance});
+    balanceValue.balance = newBalance;
+    ctx.users.push({depositMade: depositAmount});
     setShow(false);
   }
 
@@ -47,7 +49,7 @@ function addToBalance(){
       body={show ? (  
               <>
               Balance<br/>
-              <h3 className="" id="balance" placeholder="">${balance}</h3><br/>
+              <h3 className="" id="balance" placeholder="">${balanceValue.balance}</h3><br/>
               Deposit Amount <br/>
               <input type="number" className="form-control" id="depositAmount" placeholder="Enter amount" value={depositAmount} onChange={e => setDepositAmount(e.currentTarget.value)}/><br/>
               <button type="submit" className="btn btn-light" onClick={addToBalance}>DEPOSIT</button>
