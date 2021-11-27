@@ -7,11 +7,11 @@ function Balance(){
   return (
     <Card
       bgcolor="secondary"
-      header="BALANCE"
+      header="CURRENT BALANCE"
       status={status}
       body={show ? (  
               <>
-              <h3 className="" id="balance" placeholder="">${JSON.stringify(balanceValue.balance)}</h3><br/>
+              <h1 className="" id="balance" placeholder="">${JSON.stringify(balanceValue.balance)}</h1><br/>
               </>
             ):(
               <>
