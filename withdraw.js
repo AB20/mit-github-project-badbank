@@ -64,7 +64,7 @@ function Withdraw(){
               </>
             ):(
               <>
-              <h4>Success!</h4>
+              <h4>Successfully Withdrew ${withdrawAmount}</h4>
               <h3 className="" id="balance" placeholder="">New Balance: ${balance}</h3><br/>
               <button type="submit" className="btn btn-light" onClick={clearForm}>Back</button><br/>
               </>

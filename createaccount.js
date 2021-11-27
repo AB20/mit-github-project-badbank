@@ -11,6 +11,11 @@ function CreateAccount(){
         setStatus('Error: ' + label + ' cannot be empty');
         setTimeout(() => setStatus(''),3000);
         return false;
+      } else if (password.length < 8) {
+        setStatus('Error: Password must be at least 8 characters');
+        setPassword('');
+        setTimeout(() => setStatus(''),3000);
+        return false;
       }
       return true;
   }
@@ -49,7 +54,7 @@ function CreateAccount(){
               </div>
             ):(
               <>
-              <h5>Success! Account Created</h5>
+              <h5>Success! <br/>Account for {name} Created</h5>
               <button type="submit" className="btn btn-light" onClick={clearForm}>Add another account</button>
               </>
             )}
