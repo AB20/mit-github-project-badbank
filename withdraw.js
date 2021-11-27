@@ -1,7 +1,7 @@
 function Withdraw(){
   const [show, setShow]         = React.useState(true);
   const [status, setStatus]     = React.useState('');
-  const [balance, setBalance]   = React.useState(100);
+  const [balance, updateBalance]   = React.useState('');
   const [withdrawAmount, setWithdrawAmount]  = React.useState('');
   const ctx = React.useContext(UserContext);  
   
@@ -24,16 +24,19 @@ function Withdraw(){
       return true;
   }
 
-  function handleCreate(){
+  function withdraw(){
     console.log(balance,withdrawAmount);
-    //if (!validate(balance,     'balance'))     return;
+    if (!validate(balance,     'balance'))     return;
     if (!validate(withdrawAmount,    'withdrawAmount'))    return;
-    ctx.users.push({balance:100, withdrawAmount});
+    let int = parseInt(withdrawAmount);
+    let newBalance = balance - int;
+    updateBalance(newBalance)
+    ctx.users.push({balance: newBalance});
     setShow(false);
+    //ctx.users.push({balance:100, withdrawAmount});
   }    
 
   function clearForm(){
-    setBalance('');
     setWithdrawAmount('');
     setShow(true);
   } 
@@ -46,15 +49,16 @@ function Withdraw(){
       body={show ? (  
               <>
               Balance<br/>
-              <h3 className="" id="balance" placeholder="" onChange={e => setBalance(e.currentTarget.value)}>{balance}</h3><br/>
-              Withdrawal Amount <br/>
-              <input type="input" className="form-control" id="withDrawAmount" placeholder="Enter amount" value={withdrawAmount} onChange={e => setWithdrawAmount(e.currentTarget.value)}/><br/>
-              <button type="submit" className="btn btn-light" onClick={handleCreate}>WITHDRAW</button>
+              <h3 className="" id="balance" placeholder="">${balance}</h3><br/>
+              Withdraw Amount <br/>
+              <input type="number" className="form-control" id="withdrawAmount" placeholder="Enter amount" value={withdrawAmount} onChange={e => setWithdrawAmount(e.currentTarget.value)}/><br/>
+              <button type="submit" className="btn btn-light" onClick={withdraw}>WITHDRAW</button>
               </>
             ):(
               <>
               <h5>Success</h5>
-              <button type="submit" className="btn btn-light" onClick={clearForm}>Make another withdrawal</button>
+              <h3 className="" id="balance" placeholder="">New Balance: ${balance}</h3><br/>
+              <button type="submit" className="btn btn-light" onClick={clearForm}>BACK TO WITHDRAW</button><br/>
               </>
             )}
     />
