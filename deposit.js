@@ -8,11 +8,12 @@ function Deposit(){
 
   function validate(field, label){
       if (!field) {
-        setStatus('Error: ' + label + 'not provided');
+        setStatus('Error: Deposit amount not provided. Please enter a number');
         setTimeout(() => setStatus(''),3000);
         return false;
       } else if (field <= 0 ) {
         setStatus('Error: Value must be great than zero');
+        clearForm();
         setTimeout(() => setStatus(''),3000);
         return false;
       } else if (isNaN(field)==true){
@@ -56,7 +57,7 @@ function addToBalance(){
               </>
             ):(
               <>
-              <h5>Success</h5>
+              <h4>Success!</h4>
               <h3 className="" id="balance" placeholder="">New Balance: ${balance}</h3><br/>
               <button type="submit" className="btn btn-light" onClick={clearForm}>Back</button>
               </>

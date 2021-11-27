@@ -8,11 +8,11 @@ function Withdraw(){
   
   function validate(field, label){
       if (!field) {
-        setStatus('Error: ' + label + 'empty');
+        setStatus('Error: ' + label + ' value not provided');
         setTimeout(() => setStatus(''),3000);
         return false;
       } else if (field <= 0 ) {
-        setStatus('Error: Value must be great than zero');
+        setStatus('Error: Withdraw amount must be great than zero');
         clearForm();
         setTimeout(() => setStatus(''),3000);
         return false;
@@ -30,10 +30,17 @@ function Withdraw(){
     if (!validate(balance,     'balance'))     return;
     if (!validate(withdrawAmount,    'withdrawAmount'))    return;
     let int = parseInt(withdrawAmount);
-    let newBalance = balance - int;
-    updateBalance(newBalance)
-    balanceValue.balance = newBalance;
-    ctx.users.push({withdrawTaken: withdrawAmount});
+    if (withdrawAmount > balanceValue.balance) {
+        setTimeout(() => clearForm(),3000);
+        setTimeout(() => setStatus(''),3000);
+        return setStatus('DECLINED: Withdraw amount exceeds current balance')
+    } else {
+      let newBalance = balance - int;
+      updateBalance(newBalance)
+      balanceValue.balance = newBalance;
+      ctx.users.push({withdrawTaken: withdrawAmount});
+    }
+
     setShow(false);
   }    
 
@@ -57,7 +64,7 @@ function Withdraw(){
               </>
             ):(
               <>
-              <h5>Success</h5>
+              <h4>Success!</h4>
               <h3 className="" id="balance" placeholder="">New Balance: ${balance}</h3><br/>
               <button type="submit" className="btn btn-light" onClick={clearForm}>Back</button><br/>
               </>
