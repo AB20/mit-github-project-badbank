@@ -56,7 +56,7 @@ function addToBalance(){
               <>
               <h5>Success</h5>
               <h3 className="" id="balance" placeholder="">New Balance: ${balance}</h3><br/>
-              <button type="submit" className="btn btn-light" onClick={clearForm}>Add another deposit</button>
+              <button type="submit" className="btn btn-light" onClick={clearForm}>Back</button>
               </>
             )}
     />

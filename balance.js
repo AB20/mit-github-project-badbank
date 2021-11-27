@@ -1,22 +1,7 @@
 function Balance(){
   const [show, setShow]         = React.useState(true);
   const [status, setStatus]     = React.useState('');
-  const [balance, setBalance]   = React.useState();
   const ctx = React.useContext(UserContext);  
-  
-  function validate(field, label){
-      if (!field) {
-        setStatus('Error: ' + label);
-        setTimeout(() => setStatus(''),3000);
-        return false;
-      }
-      return true;
-  }
-
-  function clearForm(){
-    setBalance('');
-    setShow(true);
-  } 
 
   return (
     <Card
@@ -25,12 +10,10 @@ function Balance(){
       status={status}
       body={show ? (  
               <>
-              <h3 className="" id="balance" placeholder="">${balance}</h3><br/>
+              <h3 className="" id="balance" placeholder="">${JSON.stringify(ctx.balance)}</h3><br/>
               </>
             ):(
               <>
-              <h5>Success</h5>
-              <button type="submit" className="btn btn-light" onClick={clearForm}>Make another withdrawal</button>
               </>
             )}
     />

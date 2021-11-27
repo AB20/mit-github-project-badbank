@@ -33,7 +33,7 @@ function Withdraw(){
     updateBalance(newBalance)
     ctx.users.push({balance: newBalance});
     setShow(false);
-    //ctx.users.push({balance:100, withdrawAmount});
+    ctx.users.push({balance: newBalance});
   }    
 
   function clearForm(){
@@ -58,7 +58,7 @@ function Withdraw(){
               <>
               <h5>Success</h5>
               <h3 className="" id="balance" placeholder="">New Balance: ${balance}</h3><br/>
-              <button type="submit" className="btn btn-light" onClick={clearForm}>BACK TO WITHDRAW</button><br/>
+              <button type="submit" className="btn btn-light" onClick={clearForm}>Back</button><br/>
               </>
             )}
     />
