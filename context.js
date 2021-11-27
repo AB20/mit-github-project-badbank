@@ -7,7 +7,7 @@ function Card(props){
     function classes(){
       const bg  = props.bgcolor ? ' bg-' + props.bgcolor : ' ';
       const txt = props.txtcolor ? ' text-' + props.txtcolor: ' text-white';
-      const semantic =' ui raised very padded text container segment ';
+      const semantic = ' ui raised very padded text container segment ';
       return 'card mb-3 ' + bg + txt + semantic;
     }
   

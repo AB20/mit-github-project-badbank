@@ -1,7 +1,7 @@
 function Deposit(){
   const [show, setShow]         = React.useState(true);
   const [status, setStatus]     = React.useState('');
-  const [balance, setBalance]   = React.useState(100);
+  const [balance, updateBalance]   = React.useState(100);
   const [depositAmount, setDepositAmount]  = React.useState('');
   const ctx = React.useContext(UserContext);  
   
@@ -23,16 +23,18 @@ function Deposit(){
       return true;
   }
 
-  function handleCreate(){
+function addToBalance(){
     console.log(balance,depositAmount);
     if (!validate(balance,     'balance'))     return;
     if (!validate(depositAmount,    'depositAmount'))    return;
-    ctx.users.push({balance:100, depositAmount});
+    let int = parseInt(depositAmount);
+    let newBalance = int + balance;
+    updateBalance(newBalance)
+    ctx.users.push({balance: newBalance});
     setShow(false);
-  }    
+  }
 
   function clearForm(){
-    setBalance('');
     setDepositAmount('');
     setShow(true);
   } 
@@ -45,17 +47,20 @@ function Deposit(){
       body={show ? (  
               <>
               Balance<br/>
-              <h3 className="" id="balance" placeholder="" onChange={e => setBalance(e.currentTarget.value)}>{balance}</h3><br/>
+              <h3 className="" id="balance" placeholder="">${balance}</h3><br/>
               Deposit Amount <br/>
-              <input type="input" className="form-control" id="depositAmount" placeholder="Enter amount" value={depositAmount} onChange={e => setDepositAmount(e.currentTarget.value)}/><br/>
-              <button type="submit" className="btn btn-light" onClick={handleCreate}>DEPOSIT</button>
+              <input type="number" className="form-control" id="depositAmount" placeholder="Enter amount" value={depositAmount} onChange={e => setDepositAmount(e.currentTarget.value)}/><br/>
+              <button type="submit" className="btn btn-light" onClick={addToBalance}>DEPOSIT</button>
               </>
             ):(
               <>
               <h5>Success</h5>
+              <h3 className="" id="balance" placeholder="">New Balance: ${balance}</h3><br/>
               <button type="submit" className="btn btn-light" onClick={clearForm}>Add another deposit</button>
               </>
             )}
     />
   )
 }
+
+// onChange={e => addToBalance(balance + e.currentTarget.value)

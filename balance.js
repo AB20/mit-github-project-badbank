@@ -25,7 +25,7 @@ function Balance(){
       status={status}
       body={show ? (  
               <>
-              <h3 className="" id="balance" placeholder="" onChange={e => setBalance(e.currentTarget.value)}>{balance}</h3><br/>
+              <h3 className="" id="balance" placeholder="" onChange={e => setBalance(e.currentTarget.value)}>${balance}</h3><br/>
               </>
             ):(
               <>

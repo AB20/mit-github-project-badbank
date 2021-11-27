@@ -49,7 +49,7 @@ function CreateAccount(){
               </div>
             ):(
               <>
-              <h5>Success</h5>
+              <h5>Success! Account Created</h5>
               <button type="submit" className="btn btn-light" onClick={clearForm}>Add another account</button>
               </>
             )}
