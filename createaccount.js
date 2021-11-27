@@ -11,6 +11,16 @@ function CreateAccount(){
         setStatus('Error: ' + label + ' cannot be empty');
         setTimeout(() => setStatus(''),3000);
         return false;
+      } else if (!email) {
+        setStatus('Error: Email cannot be empty');
+        setPassword('');
+        setTimeout(() => setStatus(''),3000);
+        return false;
+      }else if (!password) {
+        setStatus('Error: Password cannot be empty');
+        setPassword('');
+        setTimeout(() => setStatus(''),3000);
+        return false;
       } else if (password.length < 8) {
         setStatus('Error: Password must be at least 8 characters');
         setPassword('');
