@@ -3,7 +3,6 @@ const ctx = React.useContext(UserContext);
 const balanceValue = React.useContext(BalanceContext);  
   return (
     <Card
-    className="tooltip"
       bgcolor="secondary"
       txtcolor="white"
       header="BadBank Home"
