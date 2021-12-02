@@ -32,3 +32,16 @@ ReactDOM.render(
 //<Route path="/balance/" component={Balance} />
 //<Route path="/login/" component={Login} />
 
+/* 
+Demonstrate the following functionality:
+Create an account
+Deposit money
+Withdraw money
+Display data on All Data Page
+Demonstrates input validation where applicable
+Discuss the following questions:
+What challenges did you encounter as you created this project? How did you overcome them?
+Discuss your design decisions. What changes did you make from the starter code?
+Did you create a form component? Why or why not?
+What extra features or enhancements did you build?
+*/

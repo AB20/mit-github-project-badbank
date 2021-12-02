@@ -53,7 +53,7 @@ function addToBalance(){
               Balance<br/>
               <h3 className="" id="balance" placeholder="">${balanceValue.balance}</h3><br/>
               Deposit Amount <br/>
-              <input type="number" className="form-control" id="depositAmount" placeholder="Enter amount" value={depositAmount} onChange={e => setDepositAmount(e.currentTarget.value)}/><br/>
+              <input type="input" className="form-control" id="depositAmount" placeholder="Enter amount" value={depositAmount} onChange={e => setDepositAmount(e.currentTarget.value)}/><br/>
               <button type="submit" className="btn btn-light" onClick={addToBalance} disabled={!depositAmount}>DEPOSIT</button>
               </>
             ):(
