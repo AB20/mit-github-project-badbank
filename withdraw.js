@@ -63,8 +63,8 @@ function Withdraw(){
               Balance<br/>
               <h3 className="" id="balance" placeholder="">${balance}</h3><br/>
               Withdraw Amount <br/>
-              <input type="number" className="form-control" id="withdrawAmount" placeholder="Enter amount" value={withdrawAmount} onChange={e => setWithdrawAmount(e.currentTarget.value)}/><br/>
-              <button type="submit" className="btn btn-light" onClick={withdraw}>WITHDRAW</button>
+              <input type="input" className="form-control" id="withdrawAmount" placeholder="Enter amount" value={withdrawAmount} onChange={e => setWithdrawAmount(e.currentTarget.value)}/><br/>
+              <button type="submit" className="btn btn-light" onClick={withdraw} disabled={!withdrawAmount}>WITHDRAW</button>
               </>
             ):(
               <>

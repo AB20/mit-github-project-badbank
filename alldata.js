@@ -1,8 +1,8 @@
 function AllData(){
   const ctx = React.useContext(UserContext);
   const userAccounts = ctx.users;
-  //const balanceValue = React.useContext(BalanceContext); 
-  //const amounts = balanceValue;
+  const balanceValue = React.useContext(BalanceContext); 
+  const amounts = balanceValue;
 
     return (
           <div>
@@ -25,7 +25,6 @@ function AllData(){
               </tbody> )
           })}
            </table>
-
           </div>
     );
 };
@@ -33,23 +32,21 @@ function AllData(){
 
   //ctx.users.forEach(element => console.log(element))
   /*
-             <table className="ui celled table">
+               <table className="ui celled table">
               <thead bgcolor="secondary">
                 <tr>
-                  <th>Deposit</th>
-                  <th>Withdraw</th>
-                  <th>Overdraft (Y/N)</th>
+                  <th>Deposit Amount</th>
+                  <th>Withdraw Amount</th>
                 </tr>
               </thead>
-          {userAccounts.map(function(user, i){
+          {balanceValue.map(function(value, i){
             return (
               <tbody>
               <tr key={i}>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>{user.password}</td>
+                <td>{value.depositMade}</td>
+                <td>{value.withdrawTaken}</td>
               </tr>
               </tbody> )
           })}
-           </table>
+           </table>        
 */
