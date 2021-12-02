@@ -4,7 +4,7 @@ function Deposit(){
   const [depositAmount, setDepositAmount]  = React.useState('');
   const ctx = React.useContext(UserContext);
   const balanceValue = React.useContext(BalanceContext);  
-  const [balance, updateBalance]   = React.useState(balanceValue.balance);
+  const [balance, updateBalance]   = React.useState(balanceValue.balance);                
 
   function validate(field, label){
       if (!depositAmount) {
@@ -42,6 +42,7 @@ function addToBalance(){
     setShow(true);
   } 
 
+
   return (
     <Card
       bgcolor="secondary"
@@ -53,7 +54,7 @@ function addToBalance(){
               <h3 className="" id="balance" placeholder="">${balanceValue.balance}</h3><br/>
               Deposit Amount <br/>
               <input type="number" className="form-control" id="depositAmount" placeholder="Enter amount" value={depositAmount} onChange={e => setDepositAmount(e.currentTarget.value)}/><br/>
-              <button type="submit" className="btn btn-light" onClick={addToBalance}>DEPOSIT</button>
+              <button type="submit" className="btn btn-light" onClick={addToBalance} disabled={!depositAmount}>DEPOSIT</button>
               </>
             ):(
               <>
